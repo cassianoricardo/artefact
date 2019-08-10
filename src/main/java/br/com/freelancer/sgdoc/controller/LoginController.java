@@ -5,8 +5,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
-import br.com.freelancer.sgdoc.Usuario;
 import br.com.freelancer.sgdoc.constantes.ViewConstantes;
+import br.com.freelancer.sgdoc.model.Usuario;
 
 @Controller
 public class LoginController {
