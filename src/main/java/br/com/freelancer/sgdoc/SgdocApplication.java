@@ -12,7 +12,7 @@ import org.springframework.context.annotation.ComponentScan;
 
 @SpringBootApplication
 @EntityScan("br.com.freelancer.model")
-@ComponentScan("br.com.freelancer.sgdoc.*")
+@ComponentScan("br.com.freelancer.*")
 public class SgdocApplication {
 
 	public static void main(String[] args) {
