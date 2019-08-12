@@ -11,7 +11,6 @@ import org.springframework.context.annotation.ComponentScan;
 //import org.springframework.jdbc.datasource.DriverManagerDataSource;
 
 @SpringBootApplication
-@EntityScan("br.com.freelancer.model")
 @ComponentScan("br.com.freelancer.*")
 public class SgdocApplication {
 
@@ -20,13 +19,8 @@ public class SgdocApplication {
 	}
 	
 	
-	/*
-	 * @Bean public DataSource dataSource(Environment environment) {
-	 * DriverManagerDataSource dataSource = new DriverManagerDataSource();
-	 * dataSource.setDriverClassName("com.mysql.jdbc.Driver");
-	 * dataSource.setUrl("jdbc:mysql://localhost:3306/sgdoc");
-	 * dataSource.setUsername("root"); dataSource.setPassword("root"); return
-	 * dataSource; }
-	 */
+	public void cadastraUsuarios() {
+		
+	}
 
 }
