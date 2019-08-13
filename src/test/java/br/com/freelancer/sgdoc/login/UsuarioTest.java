@@ -33,6 +33,7 @@ public class UsuarioTest {
 	@Test
 	public void cadastrarUsuarios() {
 		Permissao permissao = permissaoRepository.save(new Permissao("admin"));
+		permissao.getPermissao();
 		Assert.assertEquals(permissao.getPermissao(), "admin");
 		Usuario usuario = usuarioRepository.save(new Usuario("cassiano",bcryptPasswordEncoder.encode("123"),'S'));
 		Assert.assertEquals(usuario.getUsername(), "cassiano");

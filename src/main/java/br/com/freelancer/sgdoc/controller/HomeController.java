@@ -10,7 +10,7 @@ import br.com.freelancer.sgdoc.constantes.ViewConstantes;
 @Controller
 public class HomeController {
 	
-	@RequestMapping(path="/", method = RequestMethod.GET )	
+	@RequestMapping(path="/", method = { RequestMethod.GET })	
 	public ModelAndView home() {
 		ModelAndView view = new ModelAndView(ViewConstantes.HOME);
 		return view;
