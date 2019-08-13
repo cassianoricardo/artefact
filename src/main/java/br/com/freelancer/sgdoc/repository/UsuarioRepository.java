@@ -7,6 +7,6 @@ import br.com.freelancer.sgdoc.model.Usuario;
 
 public interface UsuarioRepository extends CrudRepository<Usuario,String>{
 	
-	Usuario findByUsername (String username);
+	Usuario findByUsuario (String usuario);
 
 }

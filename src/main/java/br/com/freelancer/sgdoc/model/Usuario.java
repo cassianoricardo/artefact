@@ -2,64 +2,77 @@ package br.com.freelancer.sgdoc.model;
 
 import java.io.Serializable;
 import java.util.Collection;
+import java.util.Set;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
-
-import lombok.Setter;
 
 @Entity
 public class Usuario implements UserDetails, Serializable{
 
 	private static final long serialVersionUID = 1L;
 	
+	public Usuario(String usuario, String senha, char isEnabled) {
+		super();
+		this.usuario = usuario;
+		this.senha = senha;
+		this.isEnabled = isEnabled;
+	}
+	public Usuario() {}
+	
 	@Id
-	private String username;
-	private String password;
+	private String usuario;
+	private String senha;
+	private char isEnabled;
 
 	@Override
 	public Collection<? extends GrantedAuthority> getAuthorities() {
-		// TODO Auto-generated method stub
-		return null;
+		return (Collection<? extends GrantedAuthority>) this.permissoes;
 	}
 
 	@Override
 	public String getPassword() {
-		// TODO Auto-generated method stub
-		return password;
+		return senha;
 	}
 
 	@Override
 	public String getUsername() {
-		// TODO Auto-generated method stub
-		return username;
+		return usuario;
 	}
 
 	@Override
 	public boolean isAccountNonExpired() {
-		// TODO Auto-generated method stub
 		return true;
 	}
 
 	@Override
 	public boolean isAccountNonLocked() {
-		// TODO Auto-generated method stub
 		return true;
 	}
 
 	@Override
 	public boolean isCredentialsNonExpired() {
-		// TODO Auto-generated method stub
 		return true;
 	}
 
 	@Override
 	public boolean isEnabled() {
-		// TODO Auto-generated method stub
-		return true;
+		return this.isEnabled == 'S' ? true : false;
 	}
 	
+	@ManyToMany
+	@JoinTable( 
+	        name = "usuario_permissao", 
+	        joinColumns = @JoinColumn(
+	          name = "usuario", referencedColumnName = "usuario"), 
+	        inverseJoinColumns = @JoinColumn(
+	          name = "permissao", referencedColumnName = "permissao")) 
+	private Set<Permissao> permissoes;
+
 }

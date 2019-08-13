@@ -17,16 +17,12 @@ public class LoginController {
 	public ModelAndView login(){	
 		ModelAndView  view = new ModelAndView(ViewConstantes.LOGIN);
 		view.addObject("usuario", new Usuario());
-		
 	    return view;
 	}
 	
 	@RequestMapping(path="/autenticarUsuario", method = { RequestMethod.POST, RequestMethod.GET })	
 	public ModelAndView autenticarUsuario(ServletRequest request){	
-		ModelAndView view = new ModelAndView(ViewConstantes.HOME);
-		request.getParameter("username");
-		request.getParameter("password");
-		return view;
+		return new ModelAndView(ViewConstantes.HOME);
 
 	}
 }
