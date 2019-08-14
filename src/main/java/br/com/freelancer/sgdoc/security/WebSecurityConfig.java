@@ -30,11 +30,13 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     		.anyRequest()
     		.authenticated()
 		.and()
-		.formLogin()
-			.loginPage("/login")
-			.permitAll()
+			.formLogin()
+				.loginPage("/login")
+				.permitAll()
 		.and()
 			.logout()
+			    .logoutUrl("/logout")
+				.logoutSuccessUrl("/login?logout")
 				.permitAll();
     }
 
@@ -45,7 +47,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     
     @Override
 	public void configure(WebSecurity web) throws Exception{
-		web.ignoring().antMatchers("/css/**","/js/**","/img/**");
+		web.ignoring().antMatchers("/resources/**");
 	}
     
 }
